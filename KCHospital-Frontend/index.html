@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link preload rel="stylesheet" href="./src/fonts/fonts.css" as="font" />
+    <link rel="stylesheet" href="./src/styles/login.css" />
+
+    <title>KC Hospital</title>
+  </head>
+  <body class="flex-v">
+    <h1 id="title">KC Hospital Portal</h1>
+    <input
+      type="text"
+      name="name"
+      id="coordinator"
+      placeholder="coordinator name"
+    />
+    <input
+      type="text"
+      name="passcode"
+      id="passcode"
+      placeholder="3 digit pin"
+      maxlength="3"
+      pattern="\d{3}"
+      inputmode="numeric"
+    />
+    <script src="./index.js"></script>
+  </body>
+</html>

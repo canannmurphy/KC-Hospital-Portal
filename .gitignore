@@ -1,0 +1,7 @@
+#VSCODE
+node_modules
+vite.config.js
+package-lock.json
+main
+.vscode
+.DS_Store

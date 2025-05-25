@@ -1,0 +1,594 @@
+:root {
+  --first: #f5ecd5;
+  --second: #1e201e;
+  --third: #578e7e;
+  --fourth: #58e8be;
+  --fifth: #fe4f2d;
+}
+
+/* :root {
+  --second: #565655;
+  --first: #000000;
+  --third: #578e7e;
+  --fourth: #58e8be;
+  --fifth: #fe4f2d;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overscroll-behavior: none;
+  overflow: hidden;
+  background-color: var(--first);
+}
+
+.border {
+  border: 2px solid var(--fifth);
+}
+
+.flex-h {
+  display: flex;
+}
+
+.flex-v {
+  display: flex;
+  flex-direction: column;
+}
+
+::selection {
+  background: var(--second); /* or a custom color */
+  color: var(--first); /* contrast color */
+}
+
+::-moz-selection {
+  background: var(--second);
+  color: var(--first);
+}
+
+::-webkit-selection {
+  background: var(--second);
+  color: var(--first);
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.off {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.hide {
+  display: none;
+}
+
+/* portal page */
+body {
+  padding: 3rem;
+  height: 100vh;
+  height: 100dvh;
+}
+
+#logo {
+  position: absolute;
+  top: 0;
+  margin-top: 3rem;
+  font-family: "Erstoria";
+  color: var(--second);
+  font-size: calc(8px + 0.65vw);
+}
+
+#logoutBtn {
+  position: absolute;
+  right: 0;
+  margin-right: 3rem;
+  font-family: "Erstoria";
+  background-color: transparent;
+  border: none;
+  color: var(--second);
+  font-size: calc(8px + 0.65vw);
+  cursor: pointer;
+}
+
+#auditBtn {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 3rem;
+  font-family: "Erstoria";
+  background-color: transparent;
+  border: none;
+  color: var(--second);
+  font-size: calc(8px + 0.65vw);
+  cursor: pointer;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input::placeholder {
+  color: var(--second);
+  transition: 200ms opacity;
+}
+
+input:focus::placeholder {
+  transition: 200ms opacity;
+  opacity: 0;
+}
+
+.group {
+  /* border: 2px solid red; */
+  width: 100%;
+  height: 90%;
+}
+
+#group1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+#coordinatorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+}
+
+#assignedPatient {
+  font-family: "Erstoria";
+  padding: 0 0.25rem;
+  color: var(--third);
+}
+
+#welcome {
+  font-family: "JUST Sans";
+  font-weight: 500;
+  color: var(--second);
+  font-size: calc(20px + 3.5vw);
+  line-height: 1;
+  transform: translateX(-0.5%);
+}
+
+#actionsGroup {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.actionBtnGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: fit-content;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.icon {
+  display: flex;
+  height: calc(50px + 0.15vw);
+  width: calc(50px + 0.15vw);
+  background-color: var(--second);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+.hIcon {
+  height: calc(27px + 0.15vw);
+  width: calc(27px + 0.15vw);
+}
+
+#currentInfo {
+  font-family: "JUST Sans";
+  font-weight: 500;
+  font-size: calc(12px + 0.55vw);
+  color: var(--second);
+}
+
+.actionLabel {
+  font-family: "JUST Sans";
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: calc(11px + 0.25vw);
+  color: var(--second);
+  letter-spacing: 0.02rem;
+}
+
+#group2 {
+  background-color: var(--second);
+  border-radius: 2rem;
+  height: 92%;
+  transform: translateY(4%);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+/*USED across all views*/
+.actionContainer {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.currentViewLabel {
+  color: var(--first);
+  font-family: "Erstoria";
+}
+
+.view {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  gap: 0.5rem;
+}
+/*USED across all views*/
+
+#coordView {
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.clinicLabels {
+  width: 100%;
+  letter-spacing: 0.1rem;
+  border-radius: 5rem;
+  padding: 0.5rem 0rem;
+}
+
+.labelGroup {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.cycleBtn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.previousBtn {
+  width: 20px;
+  height: 20px;
+}
+
+.clinicNames {
+  color: var(--first);
+  font-family: "JUST Sans";
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
+  font-size: calc(10px + 0.2vw);
+  transform: translateY(-10%);
+}
+
+.clinicGroups {
+  height: 95%;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.clinicView {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding: 1rem;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.patientGroup {
+  /* width: 100%; */
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  user-select: none;
+  /* transform: translateX(-5%); */
+}
+
+.patientName {
+  color: var(--first);
+  font-family: "JUST Sans";
+  font-size: calc(10px + 0.2vw);
+}
+
+.patientCoordinator {
+  color: var(--first);
+  font-family: "JUST Sans";
+  font-size: calc(8px + 0.2vw);
+  color: var(--fourth);
+  /* opacity: 0; */
+}
+
+hr {
+  border: 0.5px solid var(--first);
+  border-radius: 1rem;
+}
+
+/*ADD VIEW*/
+.navbar {
+  align-items: center;
+  justify-content: space-between;
+}
+
+#returnPrevAddView,
+#closeAddView {
+  cursor: pointer;
+}
+
+.btnIcon {
+  height: 10px;
+  width: 30px;
+  background-color: transparent;
+  border: none;
+  transform: translateY(-10px);
+}
+
+.addGroup {
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.currentViewLabel2 {
+  color: var(--first);
+  font-family: "Erstoria";
+  font-size: calc(12px + 0.75vw);
+}
+
+.clinics {
+  gap: 2rem;
+  padding-top: 3rem;
+  align-items: center;
+}
+
+.clinicBtn {
+  background-color: var(--second);
+  color: var(--first);
+  border: 3px solid var(--first);
+  font-size: calc(12px + 0.3vw);
+  padding: 1rem 3rem;
+  border-radius: 5rem;
+  transition: 200ms color;
+}
+
+.clinicBtn:hover {
+  background-color: var(--first);
+  color: var(--second);
+  cursor: pointer;
+  transition: 200ms color;
+}
+
+.inputLabel {
+  color: var(--first);
+}
+
+.addField {
+  background-color: var(--first);
+  color: var(--second);
+  font-size: calc(15px + 0.1vw);
+  font-family: "JUST Sans";
+  text-transform: capitalize;
+  text-align: center;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 3rem;
+  outline-color: var(--third);
+}
+
+#criticalBtn {
+  padding: 0.5rem 1.5rem;
+  color: var(--second);
+  cursor: pointer;
+}
+
+.clinicBtn:disabled {
+  cursor: not-allowed;
+  background-color: var(--fourth);
+  color: var(--second);
+  opacity: 0.25;
+}
+
+.clinicBtn:disabled:hover {
+  background-color: var(--fourth);
+  /* color: var(--second); */
+}
+
+.isCritical {
+  background-color: var(--fifth);
+  color: var(--first);
+}
+
+#submitNewPatientBtn {
+  height: 50px;
+  width: 50px;
+  position: relative;
+  background-color: var(--second);
+  border: none;
+  cursor: pointer;
+  /* border: 2px solid red; */
+}
+
+.addPatientIcon {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#addResponseLabel {
+  color: var(--first);
+  font-family: "Erstoria";
+}
+
+/*SEARCH VIEW*/
+#closeSearchView {
+  cursor: pointer;
+}
+
+.searchGroup {
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+#searchBtn {
+  height: 38px;
+  width: 38px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline-color: var(--third);
+}
+
+#patientFoundView {
+  height: 100%;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.headers {
+  justify-content: space-around;
+  width: 100%;
+}
+
+.field {
+  color: var(--first);
+  font-family: "JUST Sans";
+  text-transform: uppercase;
+  font-weight: 400;
+  width: 100%;
+  text-align: center;
+  font-size: calc(8px + 0.35vw);
+}
+
+.valuesGroup {
+  width: 100%;
+  height: 250px;
+  /* flex-grow: 1; */
+  justify-content: space-around;
+  overflow-y: scroll;
+}
+
+.valuesGroup::-webkit-scrollbar {
+  width: 2px;
+}
+
+.valuesGroup::-webkit-scrollbar-track {
+  background: var(--second); /* Light background */
+  border-radius: 4px;
+}
+
+.valuesGroup::-webkit-scrollbar-thumb {
+  background-color: var(--fourth); /* Scrollbar color */
+  border-radius: 4px;
+  border: 1px solid var(--fourth);
+}
+
+.valuesGroup::-webkit-scrollbar-thumb:hover {
+  background-color: var(--fourth); /* On hover */
+}
+
+.value {
+  color: var(--first);
+  font-family: "JUST Sans";
+  /* text-transform: uppercase; */
+  font-size: calc(8px + 0.2vw);
+  text-align: center;
+  width: 100%;
+}
+
+.fieldGroup {
+  width: 100%;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.countGroup {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.fieldLine {
+  align-self: stretch; /* Stretch vertically inside flex parent */
+  height: auto; /* Let height be determined by parent */
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: 1px;
+  background-color: var(--first); /* vertical line color */
+  border: none;
+  flex-shrink: 0;
+}
+
+#recordCount,
+#count {
+  color: var(--first);
+  font-family: "Erstoria";
+  text-align: center;
+}
+
+.criticalPatient {
+  color: var(--fifth);
+}
+
+/*REMOVE*/
+#removeGroupBtn,
+#processGroupBtn {
+  gap: 0.25rem;
+  align-items: center;
+}
+.actionIcon {
+  height: 25px;
+  width: 25px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.checkUp {
+  transform: translateY(-8%);
+}
+
+input {
+  outline: none;
+}
+
+.actionLabel:hover {
+  color: var(--third);
+}
+.actionIcon:hover {
+  border-bottom: 2px solid var(--third);
+}
+
+#auditBtn:hover {
+  color: #f75a5a;
+}
+
+#logoutBtn:hover {
+  color: #f75a5a;
+}

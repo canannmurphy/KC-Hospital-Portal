@@ -1,0 +1,106 @@
+:root {
+  --first: #f5ecd5;
+  --second: #1e201e;
+  --third: #578e7e;
+  --fourth: #58e8be;
+  --fifth: #fe4f2d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overscroll-behavior: none;
+  overflow: hidden;
+  background-color: var(--first);
+}
+
+.border {
+  border: 2px solid var(--fifth);
+}
+
+.flex-h {
+  display: flex;
+}
+
+.flex-v {
+  display: flex;
+  flex-direction: column;
+}
+
+::selection {
+  background: var(--second); /* or a custom color */
+  color: var(--first); /* contrast color */
+}
+
+::-moz-selection {
+  background: var(--second);
+  color: var(--first);
+}
+
+::-webkit-selection {
+  background: var(--second);
+  color: var(--first);
+}
+
+/* Login page */
+body {
+  padding: 3rem;
+  padding-top: 15%;
+  /* justify-content: center; */
+  height: 100vh;
+  height: 100dvh;
+  gap: 1rem;
+  /* width: fit-content; */
+}
+
+input {
+  border: none;
+  background-color: var(--second);
+  color: var(--first);
+  outline: none;
+  border-radius: 5rem;
+  text-transform: capitalize;
+  font-family: "JUST Sans";
+  padding: 1rem 1.25rem;
+}
+
+input::placeholder {
+  color: var(--first);
+  transition: 200ms opacity;
+  opacity: 0.75;
+}
+
+#title {
+  font-family: "Erstoria";
+  font-weight: 500;
+  color: var(--second);
+  font-size: calc(30px + 6vw);
+  letter-spacing: -0.25rem;
+  margin-bottom: 1rem;
+}
+
+#coordinator {
+  letter-spacing: 0.08rem;
+  width: 20%;
+  font-size: calc(10px + 0.25vw);
+}
+
+#passcode {
+  letter-spacing: 0.08rem;
+  width: 11%;
+  font-size: calc(10px + 0.25vw);
+}
+
+#coordinator:focus::placeholder {
+  transition: 200ms opacity;
+  opacity: 0;
+}
+
+#passcode:focus::placeholder {
+  transition: 200ms opacity;
+  opacity: 0;
+}

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link preload rel="stylesheet" href="./src/fonts/fonts.css" as="font" />
+    <link rel="stylesheet" href="./src/styles/main.css" />
+    <title>KC Hospital | Portal</title>
+  </head>
+  <body>
+    <p id="logo">KC Hospital Portal</p>
+    <button id="logoutBtn">Logout</button>
+    <a id="auditBtn" class="logDownloadBtn">Audit Log</a>
+    <main>
+      <div id="group1" class="group">
+        <div id="coordinatorInfo" class="">
+          <h1 id="welcome"></h1>
+          <h2 id="currentInfo">
+            Your assigned patient is
+            <span id="assignedPatient"></span> in
+            <span id="assignedPatientClinic"></span>
+          </h2>
+        </div>
+
+        <div id="actionsGroup" class="">
+          <button id="newPatientBtn" class="actionBtnGroup">
+            <div class="icon">
+              <img src="./src/icons/rh-plus.svg" alt="newPatient" class="hIcon" />
+            </div>
+            <p class="actionLabel">New Patient</p>
+          </button>
+
+          <button id="searchPatientBtn" class="actionBtnGroup">
+            <div class="icon">
+              <img src="./src/icons/health-book.svg" alt="searchPatient" class="hIcon" />
+            </div>
+            <p class="actionLabel">Search Patient</p>
+          </button>
+
+          <div id="processGroupBtn" class="flex-h">
+            <button id="processPatient" class="actionBtnGroup">
+              <div class="icon">
+                <img src="./src/icons/pulse.svg" alt="processPatient" class="hIcon" />
+              </div>
+              <p class="actionLabel">Process current</p>
+            </button>
+            <button id="cancelProcessing" class="actionIcon hide">
+              <img src="./src/icons/CloseB.svg" alt="" />
+            </button>
+            <button id="processCurrent" class="actionIcon checkUp hide">
+              <img src="./src/icons/CheckB.svg" alt="" />
+            </button>
+          </div>
+
+          <div id="removeGroupBtn" class="flex-h">
+            <button id="removePatient" class="actionBtnGroup">
+              <div class="icon">
+                <img src="./src/icons/rh-minus.svg" alt="removePatient" class="hIcon" />
+              </div>
+              <p class="actionLabel">Remove current</p>
+            </button>
+            <button id="cancelRemoval" class="actionIcon hide">
+              <img src="./src/icons/CloseB.svg" alt="" />
+            </button>
+            <button id="removeCurrent" class="actionIcon checkUp hide">
+              <img src="./src/icons/CheckB.svg" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="group2" class="group">
+        <div class="actionContainer">
+          <div id="coordView" class="view flex-v">
+            <p class="currentViewLabel">Coordinator View</p>
+            <div class="clinicLabels flex-h">
+              <div class="labelGroup flex-h">
+                <button id="prevHeartBtn" class="cycleBtn">
+                  <img class="previousBtn" src="./src/icons/09_Left.svg" alt="prevHeart" />
+                </button>
+                <p class="clinicNames">Heart</p>
+                <button id="nextHeartBtn" class="cycleBtn">
+                  <img class="previousBtn" src="./src/icons/10_right.svg" alt="nextHeart" />
+                </button>
+              </div>
+
+              <div class="labelGroup flex-h">
+                <button id="prevPulBtn" class="cycleBtn">
+                  <img class="previousBtn" src="./src/icons/09_Left.svg" alt="prevHeart" />
+                </button>
+                <p class="clinicNames">Pulmonary</p>
+                <button id="nextPulBtn" class="cycleBtn">
+                  <img class="previousBtn" src="./src/icons/10_right.svg" alt="prevHeart" />
+                </button>
+              </div>
+
+              <div class="labelGroup flex-h">
+                <button id="prevPlasBtn" class="cycleBtn">
+                  <img class="previousBtn" src="./src/icons/09_Left.svg" alt="prevHeart" />
+                </button>
+                <p class="clinicNames">Plastic</p>
+                <button id="nextPlasBtn" class="cycleBtn">
+                  <img class="previousBtn" src="./src/icons/10_right.svg" alt="prevHeart" />
+                </button>
+              </div>
+            </div>
+            <div class="clinicGroups flex-h">
+              <div id="clinicHeart" class="clinicView"></div>
+              <hr />
+              <div id="clinicPulmonary" class="clinicView"></div>
+              <hr />
+              <div id="clinicPlastic" class="clinicView"></div>
+            </div>
+          </div>
+
+          <div id="addView" class="view flex-v hide">
+            <div class="navbar flex-h">
+              <button id="returnPrevAddView" class="btnIcon off">
+                <img src="./src/icons/09_Left.svg" alt="" />
+              </button>
+              <p class="currentViewLabel">New Patient</p>
+              <button id="closeAddView" class="btnIcon">
+                <img src="./src/icons/Close.svg" alt="" />
+              </button>
+            </div>
+
+            <div id="addView1" class="addGroup flex-v hide">
+              <p class="currentViewLabel2">Select Clinic</p>
+              <div class="clinics flex-v">
+                <button class="clinicBtn" data-clinic="Heart">Heart</button>
+                <button class="clinicBtn" data-clinic="Pulmonary">Pulmonary</button>
+                <button class="clinicBtn" data-clinic="Plastic">Plastic</button>
+              </div>
+            </div>
+
+            <div id="addView2" class="addGroup flex-v hide">
+              <p class="currentViewLabel2">New Patient Data</p>
+              <div class="clinics flex-v">
+                <input type="text" placeholder="First Name" class="addField" />
+                <input type="text" placeholder="Last Name" class="addField" />
+                <input type="text" placeholder="SSN" class="addField" />
+                <button id="criticalBtn" class="addField">Critical</button>
+                <button id="submitNewPatientBtn">
+                  <img class="addPatientIcon" src="./src/icons/MInus.svg" alt="" />
+                  <img class="addPatientIcon hide" src="./src/icons/Plus.svg" alt="" />
+                  <img class="addPatientIcon hide" src="./src/icons/Check.svg" alt="" />
+                </button>
+                <p id="addResponseLabel"></p>
+              </div>
+            </div>
+          </div>
+
+          <div id="searchView" class="view flex-v hide">
+            <div class="navbar flex-h">
+              <button id="returnPrevAddView" class="btnIcon off">
+                <img src="./src/icons/09_Left.svg" alt="" />
+              </button>
+              <p class="currentViewLabel">Search Patient</p>
+              <button id="closeSearchView" class="btnIcon">
+                <img src="./src/icons/Close.svg" alt="" />
+              </button>
+            </div>
+            <div class="searchGroup flex-v">
+              <input id="searchFirst" type="text" placeholder="First Name" class="addField" />
+              <input id="searchLast" type="text" placeholder="Last Name" class="addField" />
+              <button id="searchBtn">
+                <img src="./src/icons/search.svg" alt="" />
+              </button>
+            </div>
+            <div id="patientFoundView" class="flex-v">
+              <div class="headers flex-h">
+                <p class="field">SOCIAL</p>
+                <p class="field">Name</p>
+                <p class="field">Clinic</p>
+                <p class="field">Critical</p>
+              </div>
+              <div class="valuesGroup flex-h">
+                <div id="socialGroup" class="fieldGroup flex-v"></div>
+                <hr class="fieldLine" />
+                <div id="nameGroup" class="fieldGroup flex-v"></div>
+                <hr class="fieldLine" />
+                <div id="clinicGroup" class="fieldGroup flex-v"></div>
+                <hr class="fieldLine" />
+                <div id="criticalGroup" class="fieldGroup flex-v"></div>
+              </div>
+              <div class="countGroup flex-h">
+                <p id="recordCount">Total records found:</p>
+                <p id="count">0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script type="module">
+      import { validateSession, setupLogout } from "./src/scripts/authHandler.js";
+      import { initializeWebSocket } from "./src/scripts/wsHandler.js";
+      import { initNewPatientBtn, initAddPatient } from "./src/scripts/views/newPatientState.js";
+      import { initSearchBtn } from "./src/scripts/views/searchPatientState.js";
+      import { initRemovePatientBtn } from "./src/scripts/views/removePatientState.js";
+      import { initProcessPatientBtn } from "./src/scripts/views/processPatientState.js";
+      import { initBatchCycling } from "./src/scripts/batchHandler.js";
+
+      const name = validateSession();
+      const socket = initializeWebSocket(name);
+      initNewPatientBtn(socket, name);
+      initAddPatient(socket, name);
+      initSearchBtn(socket, name);
+      initRemovePatientBtn(socket, name);
+      initProcessPatientBtn(socket, name);
+      initBatchCycling(socket, name);
+      setupLogout(socket);
+
+      const auditBtn = document.getElementById("auditBtn");
+
+      auditBtn.addEventListener("click", async () => {
+        const token = sessionStorage.getItem("authToken");
+
+        const response = await fetch(`http://${window.location.hostname}:18080/logfile`, {
+          method: "GET",
+          headers: {
+            Authorization: `${token}`,
+          },
+        });
+
+        if (!response.ok) {
+          alert("Failed to download log file. Check permissions.");
+          return;
+        }
+
+        const blob = await response.blob();
+        const link = Object.assign(document.createElement("a"), {
+          href: URL.createObjectURL(blob),
+          download: "logReport.txt",
+        });
+        link.click();
+      });
+    </script>
+    <script type="module" src="./src/scripts/views/newPatientState.js"></script>
+    <script type="module" src="./src/scripts/views/searchPatientState.js"></script>
+    <script type="module" src="./src/scripts/views/processPatientState.js"></script>
+    <script type="module" src="./src/scripts/views/removePatientState.js"></script>
+    <script type="module" src="./src/scripts/batchHandler.js"></script>
+  </body>
+</html>
